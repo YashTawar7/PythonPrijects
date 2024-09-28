@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Flask App</title>
+</head>
+<body>
+    <h1>Welcome to Simple Flask App</h1>
+    <h2>Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.author }}: {{ post.content }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Add a Post</h2>
+    <form action="{{ url_for('add_post') }}" method="post">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required><br>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea><br>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>
